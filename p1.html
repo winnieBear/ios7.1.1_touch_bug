@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="format-detection" content="email=no" />
+  <meta name="format-detection" content="address=no;">
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <title>test page 1</title>
+  <style>
+  *{
+    margin:0;
+    padding: 0;
+  }
+  ul {
+    list-style: none;
+  }
+  button {
+    width:300px;
+    height:100px;
+    margin:20px 10px;
+  }
+  </style>
+</head>
+
+<body>
+  <h2>test page 1</h2>
+  <ul id="wrapper">
+    <li data-url="p2.html">
+      <button>click 1</button>
+    </li>
+    <li data-url="p2.html">
+      <button>click 2</button>
+    </li>
+    <li data-url="p2.html">
+      <button>click 3</button>
+    </li>
+     <li data-url="p2.html">
+      <button>click 4</button>
+    </li>
+     <li data-url="p2.html">
+      <button>click 5</button>
+    </li>
+  </ul>
+
+  <script>
+    function $(id){
+      return document.getElementById(id);
+    }
+    var wrapper = $('wrapper');
+    wrapper.addEventListener('touchend',function(e){
+      if(e.target.tagName.toLowerCase() !== 'button'){
+        return false;
+      }
+      e.stopPropagation();
+      var btn = e.target;
+      var li = btn.parentNode,url=li.getAttribute('data-url');
+      location.href=url;
+    })
+  </script>
+  <body>
+
+</html>
